@@ -2,13 +2,19 @@
 ### Cre: Pyo Tutor
 
 Hàm main sẽ setup Alarm(5) trước thi thực hiện function chính là Build() để thực thi.
+
 ![Đây là hàm Main](https://github.com/zirami/HackCTF/blob/main/register/image/main_func.png)
+
+
 Tại hàm build(), signal sẽ được kích hoạt và gọi hàm handler để thực thi các tham số đã truyền trong obj.
 Sau đó thực hiện 2 vòng while và Do while, nhận các tham số cho register.
+
 ![Đây là hàm build](https://github.com/zirami/HackCTF/blob/main/register/image/build%20func.png)
 ![Đây là hàm handler](https://github.com/zirami/HackCTF/blob/main/register/image/handler_func.png)
 
+
 Trong hàm Do While có hàm validate_syscall_obj() để check điều kiện, với tham số đầu vào rơi vào RAX register.
+
 ![Đây là hàm Validate_syscal_obj](https://github.com/zirami/HackCTF/blob/main/register/image/validate_syscall_obj_func.png)
 
 Chương trình sử dụng signal(14, handler); kèm theo alarm(5-seconds).
