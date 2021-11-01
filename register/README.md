@@ -29,6 +29,7 @@ Có 2 công việc cần làm để gọi shell
 
 ## Getshell
 
+![get_shell](https://github.com/zirami/HackCTF/blob/main/register/image/get_shell.png)
 
 
 ## File Exploit
