@@ -1,7 +1,8 @@
 # Register
 ### Cre: Pyo Tutor
 
-* main func
+Hàm main sẽ setup Alarm(5) trước thi thực hiện function chính là Build() để thực thi.
+![Đây là hàm Main](https://github.com/zirami/HackCTF/blob/main/register/image/main_func.png)
 * build func
 
 Chương trình sử dụng signal(14, handler); kèm theo alarm(5-seconds).
