@@ -25,7 +25,7 @@ Partial RELRO = dễ dàng ghi đè vùng GOT.
 Canary found = ngăn chặn BOF (buffer overflow), nếu ghi dè vùng này, chương trình sẽ báo lỗi.
 
 Dùng IDA để xem pseudo code của file.
-![main_func](https://github.com/zirami/HackCTF/blob/main/babyfsb/images/main.png)
+![main_func](https://github.com/zirami/HackCTF/blob/main/babyfsb/images/mainv2.png)
 
 Chương trình in ra dòng "hello", sau đó cho nhập 0x40 byte vào biến char buffer[56] - (BOF), và in ra giá trị buffer vừa nhập - FSB.
 
