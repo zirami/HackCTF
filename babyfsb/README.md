@@ -25,5 +25,22 @@ Partial RELRO = dễ dàng ghi đè vùng GOT.
 Canary found = ngăn chặn BOF (buffer overflow), nếu ghi dè vùng này, chương trình sẽ báo lỗi.
 
 Dùng IDA để xem pseudo code của file.
+![main_func](https://github.com/zirami/HackCTF/blob/main/babyfsb/images/main.png)
+
+Chương trình in ra dòng "hello", sau đó cho nhập 0x40 byte vào biến char buffer[56] - (BOF), và in ra giá trị buffer vừa nhập - FSB.
+
 
 # Exploit
+
+Trước hết cần phải tạo vòng lặp cho chương trình quay về hàm main sau khi thực hiện print(buf), nhưng sau hàm print(buf) không thấy hàm nào khác được gọi.
+Nhưng chúng ta có Canary found, chức năng thêm Canary vào stack nhằm ngăn chặn việc BOF, nếu ghi đè chương trình sẽ gọi một hàm khác gọi là <__stack_chk_fail@plt> để hiển thị thông báo và thoát.
+
+```sh
+*** stack smashing detected ***: <unknown> terminated
+Aborted
+```
+Lợi dùng việc tràn canary, gọi hàm __stack_chk_fail@plt để quay về main, bằng việc thay đổi __stack_chk_fail@got = main
+
+Sau đó, sẽ thực hiện leak địa chỉ libc, tính libc_base và gọi shell.
+
+# FLAG HackCTF{v3ry_v3ry_345y_f5b!!!}
