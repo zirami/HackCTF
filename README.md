@@ -5,3 +5,4 @@ test commit2
 
 testcommit2
 testhifive
+testhifive
